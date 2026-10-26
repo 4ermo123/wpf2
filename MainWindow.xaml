@@ -1,0 +1,39 @@
+﻿<Window x:Class="AnkietaWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ankieta - płeć"
+        Height="300" Width="400"
+        WindowStartupLocation="CenterScreen">
+
+    <StackPanel Margin="25">
+        <TextBlock Text="ANKIETA"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+        <TextBlock Text="Wybierz płeć:"
+                   FontSize="16"
+                   Margin="0,0,0,10"/>
+
+        <RadioButton x:Name="rbM"
+                     Content="M - mężczyzna"
+                     GroupName="Plec"
+                     Margin="5"/>
+
+        <RadioButton x:Name="rbK"
+                     Content="K - kobieta"
+                     GroupName="Plec"
+                     Margin="5"/>
+
+        <RadioButton x:Name="rbI"
+                     Content="I - inna"
+                     GroupName="Plec"
+                     Margin="5"/>
+
+        <Button Content="Dalej"
+                Height="35"
+                Margin="0,20,0,0"
+                Click="Dalej_Click"/>
+    </StackPanel>
+</Window>
