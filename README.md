@@ -1,10 +1,23 @@
-📝 Ankieta WPF – C#
-Aplikacja desktopowa napisana w języku C# z wykorzystaniem technologii WPF (Windows Presentation Foundation). Program umożliwia przeprowadzenie ankiety, zapis odpowiedzi do pliku tekstowego oraz generowanie statystyk na podstawie zebranych danych.
+📝 Ankieta WPF
+Aplikacja desktopowa napisana w języku C# z wykorzystaniem technologii WPF (Windows Presentation Foundation). Umożliwia przeprowadzanie ankiet, zapisywanie odpowiedzi do pliku tekstowego oraz generowanie statystyk.
 
-📌 Funkcjonalności
-Wybór płci – użytkownik wybiera jedną z trzech opcji: M, K lub I.
-Podanie wieku – aplikacja sprawdza poprawność wprowadzonego wieku (od 1 do 120 lat).
-Wybór ulubionego koloru – dostępnych jest 10 kolorów:
+✨ Funkcjonalności
+👤 Wybór płci: M, K lub I.
+🎂 Wprowadzenie wieku ankietowanego.
+🎨 Wybór jednego z 10 kolorów.
+💾 Zapis odpowiedzi do pliku ankiety.txt.
+📂 Odczyt zapisanych danych z pliku.
+📊 Generowanie statystyk ankiety.
+🏆 Wyznaczanie najczęściej wybieranej płci i koloru.
+🧮 Obliczanie średniego wieku ankietowanych.
+🔄 Odświeżanie statystyk na podstawie zapisanych danych.
+✅ Walidacja wprowadzonego wieku.
+🛠️ Technologie
+C#
+WPF
+XAML
+.NET 8 lub nowszy
+🎨 Dostępne kolory
 Czarny
 Biały
 Czerwony
@@ -15,20 +28,6 @@ Pomarańczowy
 Fioletowy
 Różowy
 Szary
-Zapis danych – odpowiedzi są zapisywane w pliku ankiety.txt.
-Odczyt danych – aplikacja odczytuje zapisane ankiety, również po ponownym uruchomieniu programu.
-Statystyki – program oblicza:
-liczbę zapisanych ankiet,
-najczęściej wybieraną płeć,
-najpopularniejszy kolor,
-średni wiek ankietowanych.
-Obsługa remisów – w przypadku takiej samej liczby głosów dla kilku opcji wyświetlane są wszystkie zwycięskie opcje.
-🛠️ Technologie
-C#
-WPF (Windows Presentation Foundation)
-.NET 8 lub nowszy
-XAML
-Plik tekstowy do przechowywania danych
 📂 Struktura projektu
 
 text
@@ -40,35 +39,30 @@ AnkietaWPF/
 ├── StatystykiWindow.xaml
 ├── StatystykiWindow.xaml.cs
 ├── Ankieta.cs
-├── ankiety.txt
 └── README.md
-Plik ankiety.txt jest tworzony automatycznie przy pierwszym zapisie odpowiedzi. Jego lokalizacja zależy od katalogu uruchomieniowego aplikacji.
-🚀 Uruchomienie
+🚀 Uruchomienie projektu
 Wymagania
 System Windows.
-Visual Studio z zainstalowanym pakietem tworzenia aplikacji .NET Desktop.
+Visual Studio z obsługą WPF.
 .NET 8 SDK lub nowszy, zgodny z konfiguracją projektu.
-Instrukcja
+Instrukcja uruchomienia
 Sklonuj repozytorium:
 
 bash
 git clone <URL_REPOZYTORIUM>
-Otwórz plik rozwiązania .sln lub projekt .csproj w Visual Studio.
-Upewnij się, że projekt korzysta z WPF i odpowiedniej wersji .NET.
-Zbuduj projekt za pomocą opcji Build → Build Solution.
-Uruchom aplikację klawiszem F5 lub Ctrl + F5.
-📖 Jak korzystać z aplikacji?
-Uruchom program.
-W pierwszym oknie wybierz płeć: M, K lub I.
-Kliknij przycisk Dalej.
-W drugim oknie podaj wiek i wybierz ulubiony kolor.
-Kliknij Zapisz ankietę.
-Aby wyświetlić statystyki, kliknij Pokaż statystyki.
-W razie potrzeby użyj przycisku Odśwież statystyki, aby ponownie odczytać dane z pliku.
-💾 Format zapisu danych
-Każda ankieta jest zapisywana w osobnym wierszu pliku ankiety.txt.
+Otwórz plik .sln lub .csproj w Visual Studio.
+Zbuduj projekt, wybierając Build → Build Solution.
+Uruchom aplikację za pomocą klawisza F5 lub Ctrl + F5.
+📋 Jak działa aplikacja?
+Użytkownik wybiera płeć w pierwszym oknie.
+Przechodzi do drugiego okna.
+Podaje swój wiek i wybiera ulubiony kolor.
+Zapisuje odpowiedzi do pliku tekstowego.
+Może wyświetlić statystyki wszystkich zapisanych ankiet.
+💾 Zapis danych
+Odpowiedzi są zapisywane w pliku ankiety.txt.
 
-Format:
+Każda linia zawiera dane jednej osoby w formacie:
 
 
 text
@@ -82,33 +76,46 @@ K;31;Czarny
 I;20;Zielony
 M;40;Niebieski
 K;25;Czerwony
-Dane są rozdzielone średnikami (;). Nowe odpowiedzi są dopisywane do pliku, dzięki czemu wcześniejsze ankiety nie są nadpisywane.
+Dane są oddzielone średnikami (;). Nowe odpowiedzi są dopisywane do pliku, dzięki czemu wcześniejsze wyniki pozostają zapisane.
 
-📊 Przykładowe statystyki
-Dla powyższych danych program wyświetli:
+📊 Statystyki
+Program oblicza:
 
-Liczba ankiet: 5
-Najczęściej wybierana płeć: M i K – po 2 głosy
-Najpopularniejszy kolor: Niebieski – 2 głosy
-Średni wiek ankietowanych: 28,20 lat
-🧮 Obliczanie średniego wieku
-Średni wiek obliczany jest na podstawie wszystkich poprawnie odczytanych ankiet:
+Liczbę ankiet – liczbę poprawnie odczytanych odpowiedzi.
+Najczęściej wybieraną płeć – opcję z największą liczbą głosów.
+Najpopularniejszy kolor – kolor wskazany przez największą liczbę osób.
+Średni wiek – średnią arytmetyczną wieku wszystkich ankietowanych.
+W przypadku remisu program wyświetla wszystkie opcje z największą liczbą głosów.
 
+Przykładowy wynik
+Dla pięciu przykładowych ankiet:
+
+
+Statystyka	Wynik
+Liczba ankiet	5
+Najczęściej wybierana płeć	M i K – po 2 głosy
+Najpopularniejszy kolor	Niebieski – 2 głosy
+Średni wiek	28,20 lat
+Wzór na średni wiek
 S
 ˊ
 redni wiek
 =
-Suma wieku ankietowanych
-Liczba ankietowanych
-Wynik jest wyświetlany z dokładnością do dwóch miejsc po przecinku.
-
-🔒 Przechowywanie danych
-Dane są przechowywane lokalnie w pliku tekstowym.
+Suma wieku
+Liczba ankiet
+🔐 Przechowywanie danych
+Dane są zapisywane lokalnie na komputerze.
 Aplikacja nie wymaga połączenia z internetem.
-Plik należy chronić przed nieautoryzowanym dostępem, jeśli zawiera rzeczywiste dane ankietowanych.
-Usunięcie pliku ankiety.txt spowoduje utratę zapisanych odpowiedzi.
-👨‍💻 Autor
-Projekt edukacyjny demonstrujący tworzenie aplikacji okienkowej WPF, obsługę kontrolek XAML, zapis i odczyt plików oraz analizę danych w języku C#.
+Plik ankiety.txt jest tworzony automatycznie podczas zapisu pierwszej ankiety.
+Usunięcie pliku powoduje utratę zapisanych danych.
+🎯 Cel projektu
+Celem projektu jest praktyczne wykorzystanie:
 
+tworzenia interfejsów graficznych w WPF,
+obsługi zdarzeń i kontrolek XAML,
+przekazywania danych między oknami,
+zapisu i odczytu plików w C#,
+przetwarzania kolekcji danych za pomocą LINQ,
+obliczania statystyk na podstawie zebranych odpowiedzi.
 📄 Licencja
-Projekt może być wykorzystywany do nauki programowania i rozwijany na własne potrzeby. W przypadku publikacji warto dodać odpowiednią licencję, np. MIT.
+Projekt edukacyjny przeznaczony do nauki programowania w języku C# i technologii WPF.
